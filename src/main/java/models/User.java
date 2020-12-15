@@ -1,26 +1,24 @@
 package models;
 
+import java.util.Objects;
+
 public class User {
-    private int id;
+
     private String userName;
-    private String userPosition;
-    private String userRole;
+    private String userCompanyPosition;
+    private String userCompanyRole;
     private int departmentId;
+    private int id;
 
 
-    public User(String userName, String userPosition, String userRole, int departmentId) {
+    public User(String userName, String userCompanyPosition, String userCompanyRole, int departmentId) {
         this.userName = userName;
-        this.userPosition = userPosition;
-        this.userRole = userRole;
+        this.userCompanyPosition = userCompanyPosition;
+        this.userCompanyRole = userCompanyRole;
         this.departmentId = departmentId;
-    }
-    public int getId() {
-        return id;
+
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getUserName() {
         return userName;
@@ -30,20 +28,20 @@ public class User {
         this.userName = userName;
     }
 
-    public String getUserPosition() {
-        return userPosition;
+    public String getUserCompanyPosition() {
+        return userCompanyPosition;
     }
 
-    public void setUserPosition(String userPosition) {
-        this.userPosition = userPosition;
+    public void setUserCompanyPosition(String userCompanyPosition) {
+        this.userCompanyPosition = userCompanyPosition;
     }
 
-    public String getUserRole() {
-        return userRole;
+    public String getUserCompanyRole() {
+        return userCompanyRole;
     }
 
-    public void setUserRole(String userRole) {
-        this.userRole = userRole;
+    public void setUserCompanyRole(String userCompanyRole) {
+        this.userCompanyRole = userCompanyRole;
     }
 
     public int getDepartmentId() {
@@ -53,5 +51,28 @@ public class User {
     public void setDepartmentId(int departmentId) {
         this.departmentId = departmentId;
     }
-}
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return getDepartmentId() == user.getDepartmentId() &&
+                getId() == user.getId() &&
+                Objects.equals(getUserName(), user.getUserName()) &&
+                Objects.equals(getUserCompanyPosition(), user.getUserCompanyPosition()) &&
+                Objects.equals(getUserCompanyRole(), user.getUserCompanyRole());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getUserName(), getUserCompanyPosition(), getUserCompanyRole(), getDepartmentId(), getId());
+    }
+}

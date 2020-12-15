@@ -1,26 +1,57 @@
 package models;
 
-import java.util.List;
+import java.util.Objects;
 
 public class Department {
-    private int id;
     private String departmentName;
-    private String description;
-    private List<User> departmentUsers;
-    private int noOfUsers;
-    private List<DepartmentNews> departmentNews;
+    private String departmentDescription;
+    private int departmentEmployeesNumber;
+    private int id;
 
 
-    public Department(String departmentName, String description) {
+    public Department(String departmentName, String departmentDescription, int departmentEmployeesNumber) {
         this.departmentName = departmentName;
-        this.description = description;
-    }
-    public String getDescription() {
-        return description;
+        this.departmentDescription = departmentDescription;
+        this.departmentEmployeesNumber = departmentEmployeesNumber;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Department that = (Department) o;
+        return departmentEmployeesNumber == that.departmentEmployeesNumber &&
+                id == that.id &&
+                departmentName.equals(that.departmentName) &&
+                departmentDescription.equals(that.departmentDescription);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(departmentName, departmentDescription, departmentEmployeesNumber, id);
+    }
+
+    public String getDepartmentName() {
+        return departmentName;
+    }
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
+
+    public String getDepartmentDescription() {
+        return departmentDescription;
+    }
+
+    public void setDepartmentDescription(String departmentDescription) {
+        this.departmentDescription = departmentDescription;
+    }
+
+    public int getDepartmentEmployeesNumber() {
+        return departmentEmployeesNumber;
+    }
+
+    public void setDepartmentEmployeesNumber(int departmentEmployeesNumber) {
+        this.departmentEmployeesNumber = departmentEmployeesNumber;
     }
 
     public int getId() {
@@ -30,38 +61,4 @@ public class Department {
     public void setId(int id) {
         this.id = id;
     }
-
-    public String getDepartmentName() {
-        return departmentName;
-    }
-
-    public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
-    }
-
-    public List<User> getDepartmentUsers() {
-        return departmentUsers;
-    }
-
-    public void setDepartmentUsers(List<User> departmentUsers) {
-        this.departmentUsers = departmentUsers;
-    }
-
-    public int getNoOfUsers() {
-        return noOfUsers;
-    }
-
-    public void setNoOfUsers(int noOfUsers) {
-        this.noOfUsers = noOfUsers;
-    }
-
-    public List<DepartmentNews> getDepartmentNews() {
-        return departmentNews;
-    }
-
-    public void setDepartmentNews(List<DepartmentNews> departmentNews) {
-        this.departmentNews = departmentNews;
-    }
 }
-
-

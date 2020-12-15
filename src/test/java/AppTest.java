@@ -1,13 +1,15 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+public class AppTest {
+        @Test
+        public void creates_instanceOfApp_true(){
+            App newApp = new App();
+            assertTrue(newApp instanceof App);
+        }
 
-class AppTest {
-    @Test
-    public void creates_instanceOfApp_true(){
-        App newApp = new App();
-        assertTrue(newApp instanceof App);
+    private void assertTrue(boolean b) {
     }
 
 
 }
+
