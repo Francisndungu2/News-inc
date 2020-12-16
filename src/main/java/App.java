@@ -28,7 +28,7 @@ public class App {
 
         Connection conn;
         Gson gson = new Gson();
-        String connectionString =  ("jdbc:postgresql://localhost:5432/");
+        String connectionString =  ("jdbc:postgresql://localhost:5432/myorg");
         Sql2o sql2o = new Sql2o(connectionString, "moringa", "fRANC220515");
 
 
@@ -44,7 +44,7 @@ public class App {
                 return gson.toJson(newsDao.getAll());
             }
             else{
-                return "{\"this is website to sell supercar.\"}";
+                return "{\"this is news.\"}";
             }
         });
         post("/department/new", "application/json", (req, res)->{
@@ -56,7 +56,7 @@ public class App {
 
 
         get("/", "application/json", (req, res) ->
-                "{\"we sell suppercar eg  bughati.\"}");
+                "{\"this is organisation page.\"}");
 
 
         post("/news/new", "application/json", (req, res) -> {
