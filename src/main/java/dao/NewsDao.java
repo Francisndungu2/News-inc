@@ -1,24 +1,24 @@
 package dao;
-import models.*;
+
+import model.News;
+
 import java.util.List;
 
 public interface NewsDao {
 
+    //create
     void add(News news);
-    void addNewsToDepartment(News news, DepartmentDao.Department department);
 
-
+    //read
     List<News> getAll();
-    News findById(int id);
-    List<News> getAllNewsByDepartment(int departmentId);
-
-    List<News> getNewsByDepartment(int departmentId);
+    List<News> getAllNewsByDepartment(int departmentid);
+    List<News> getAllNewsByDepartmentSortedNewestToOldest(int departmentid);
 
 
+    //update
+    //omit for now
 
-    void update(int id, String newsTitle, String newsContent,int departmentId);
-
+    //delete
     void deleteById(int id);
     void clearAll();
-
 }
